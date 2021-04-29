@@ -22,3 +22,5 @@ This project is just a template to quickly get you up and running. You should fe
 | /dump/{data} | TEXT         | Dumped!                              |
 | /redir       | REDIRECT     | 302 - http://localhost:3000/flag.txt |
 | /{filename}  | FILE         | ./public/{filename}                  |
+
+> **Quick Tip:** Use [ngrok](https://ngrok.com) to get a temporary public domain for this app.
