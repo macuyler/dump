@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Dump</title>
+<style>html{background:#1d1d1d}body{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:sans-serif}code{font-family:monospace;width:350px;display:inline-block}ul{border:1px solid rgba(255,255,255,0.1);border-radius:2px}</style>
+	</head>
+	<body>
+		<h1>Hello World!</h1>
+		<p>You can dump flags and cause <em>SSRFs</em> from this simple express app!</p>
+		<h2>Routes:</h2>
+		<ul>
+			<li><p><strong><code id="hello">/hello</code></strong> JSON: <code>{"message": "hello world"}</code></p></li>
+			<li><p><strong><code id="dump">/dump</code></strong> JSON: <code>{"status": 200}</code></p></li>
+			<li><p><strong><code id="dumpster">/dump/{data}</code></strong> Text: <code>Dumped!</code></p></li>
+			<li><p><strong><code id="redir">/redir</code></strong> Redirect: <code>302 - https://localhost:3000/flag.txt</code></p></li>
+			<li><p><strong><code id="file">/{filename}</code></strong> File: <code>./public/{filename}</code></p></li>
+		</ul>
+		<script type="text/javascript">
+			Object.entries({"hello": "/hello", "dump": "/dump/*", "dumpster": "/dump/{data}", "redir": "/redir" "file": "/{filename}"}).map(([routeId, value]) => document.getElementById(routeId).innerText = `${window.location.origin}${value}`);
+		</script>
+	</body>
+</html>
