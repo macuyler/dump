@@ -11,9 +11,9 @@
 		<ul>
 			<li><p><strong><code id="hello">/hello</code></strong> JSON: <code>{"message": "hello world"}</code></p></li>
 			<li><p><strong><code id="dump">/dump</code></strong> JSON: <code>{"status": 200}</code></p></li>
-			<li><p><strong><code id="dumpster">/dump/{data}</code></strong> Text: <code>Dumped!</code></p></li>
-			<li><p><strong><code id="redir">/redir</code></strong> Redirect: <code>302 - https://localhost:3000/flag.txt</code></p></li>
-			<li><p><strong><code id="file">/{filename}</code></strong> File: <code>./public/{filename}</code></p></li>
+			<li><p><strong><code id="dumpster">/dump/{data}</code></strong> TEXT: <code>Dumped!</code></p></li>
+			<li><p><strong><code id="redir">/redir</code></strong> REDIRECT: <code>302 - http://localhost:3000/flag.txt</code></p></li>
+			<li><p><strong><code id="file">/{filename}</code></strong> FILE: <code>./public/{filename}</code></p></li>
 		</ul>
 		<script type="text/javascript">
 			Object.entries({"hello": "/hello", "dump": "/dump/*", "dumpster": "/dump/{data}", "redir": "/redir", "file": "/{filename}"}).map(([routeId, value]) => document.getElementById(routeId).innerText = `${window.location.origin}${value}`);
