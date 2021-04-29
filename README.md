@@ -1,6 +1,6 @@
 # Hello World
 
-You can dump flags and cause SSRFs from this simple express app!
+You can dump flags and cause _SSRFs_ with this simple express app!
 
 ## Setup
 
