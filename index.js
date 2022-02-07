@@ -4,6 +4,15 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
+const PORT = process.env.PORT || 3000;
+
+// Get the origin of a request.
+const origin = ({ protocol, rawHeaders }) => {
+	const hostIndex = rawHeaders.indexOf('Host');
+	const host = hostIndex === -1 ? `localhost:${PORT}` : rawHeaders[hostIndex + 1];
+	return `${protocol}://${host}`;
+};
+
 const corsOptions = {
 	origin: '*',
 	optionsSuccessStatus: 200
@@ -35,12 +44,10 @@ app.get('/dump/*', (req, res) => {
 });
 
 app.get('/redir', (req, res) => {
-	res.redirect(302, 'http://localhost:3000/flag.txt');
+	res.redirect(302, `${origin(req)}/flag.txt`);
 });
 
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(` ~ Listening at http://localhost:${PORT}`));
-
